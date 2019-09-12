@@ -1,0 +1,39 @@
+proc RandomScatter ()
+{
+float $Xmove = `rand 0 20` ; 
+float $Ymove = `rand 0 20` ; 
+float $Zmove = `rand 0 20` ; 
+float $Xrotate = `rand 0 359` ; 
+float $Yrotate = `rand 0 359` ; 
+float $Zrotate = `rand 0 359` ; 
+float $Xscale = `rand 0.5 2` ; 
+float $Yscale = `rand 0.5 2` ; 
+float $Zscale = `rand 0.5 2` ; 
+string $object[] ; 
+string $objs[] ; 
+int $dupNum = 60 ;
+
+$object = `ls -sl`;
+
+for ($i =  0 ; $i  < $dupNum ; $i++) {
+duplicate -rr $object[0] ; 
+move -a -ws $Xmove $Ymove $Zmove $object[0] ; 
+rotate -r $Xrotate $Yrotate $Zrotate $object[0] ; 
+scale -a $Xscale $Yscale $Zscale $object[0] ; 
+$Xmove = `rand -20 20` ; 
+$Ymove = `rand -20 20` ; 
+$Zmove = `rand -20 20` ; 
+$Xrotate = `rand 0 359` ; 
+$Yrotate = `rand 0 359` ; 
+$Zrotate = `rand 0 359` ; 
+$Xscale = `rand 0.5 2` ; 
+$Yscale = `rand 0.5 2` ; 
+$Zscale = `rand 0.5 2` ; 
+
+$objs[size($objs)] =  $object[0] ;
+}
+}
+
+RandomScatter() ; 
+
+
