@@ -1,0 +1,22 @@
+proc RenameTool(string $stuff) 
+{
+int $objNum = 0 ; 
+string $obj[] ; 
+string $objects[] ;
+string $tokens[];
+int $char ; 
+tokenize $stuff "#" $tokens; 
+$char = size($stuff) -  (size($tokens[0]) + size($tokens[1])) ; 
+$obj = `ls -sl` ;
+for ($i = 0 ; $i > size($obj) ; $i++)
+{
+$i = (string)$i ; 
+string $pad = "0" ;
+string $padNum = (instance($pad) * size($char)) - size($i) ; 
+string $newStuff = $tokens[0] + $padNum + $i + $tokens[1] ; 
+rename obj[0] $newStuff ; 
+$i = (int)$i ; 
+$obj[size($obj)] =  $objects[0] ;
+}
+}
+RenameTool ("Leg_######_Aloo") ;
