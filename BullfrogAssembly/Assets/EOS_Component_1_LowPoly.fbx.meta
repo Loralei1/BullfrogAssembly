@@ -1,8 +1,33 @@
 fileFormatVersion: 2
 guid: f617d03569d846c4daaba942fa5972b1
 ModelImporter:
-  serializedVersion: 25
-  internalIDToNameTable: []
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: EOS_Component_1_LowPoly
+    100004: polySurface1
+    100006: polySurface1 1
+    100008: polySurface2
+    100010: polySurface3
+    100012: transform1
+    100014: transform2
+    100016: transform3
+    100018: transform4
+    400000: //RootNode
+    400002: EOS_Component_1_LowPoly
+    400004: polySurface1
+    400006: polySurface1 1
+    400008: polySurface2
+    400010: polySurface3
+    400012: transform1
+    400014: transform2
+    400016: transform3
+    400018: transform4
+    2100000: lambert2
+    2300000: polySurface1
+    3300000: polySurface1
+    4300000: polySurface1
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -45,19 +70,18 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -66,11 +90,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -80,7 +103,6 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
