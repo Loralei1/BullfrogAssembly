@@ -1,22 +1,52 @@
-proc RenameTool(string $stuff) 
+//The commented out part was the first script I turned in. It was close to what we went over in class, but I was definitely missing a few things. 
+//proc RenameTool(string $stuff) 
+//{
+//int $objNum = 0 ; 
+//string $obj[] ; 
+//string $objects[] ;
+//string $tokens[];
+//int $char ; 
+//tokenize $stuff "#" $tokens; 
+//$char = size($stuff) -  (size($tokens[0]) + size($tokens[1])) ; 
+//$obj = `ls -sl` ;
+//for ($i = 0 ; $i > size($obj) ; $i++)
+//{
+//string $num = $i ; 
+//string $pad = "0" ;
+//string $padNum = (instance($pad) * size($char)) - size($num) ; 
+//string $newStuff = $tokens[0] + $padNum + $num + $tokens[1] ; 
+//rename obj[0] $newStuff ; 
+//$i = (int)$i ; 
+//$obj[size($obj)] =  $objects[0] ;
+//}
+//}
+//RenameTool ("Leg_######_Aloo") ;
+
+
+proc RenameTool (string $stuff)
+
 {
-int $objNum = 0 ; 
-string $obj[] ; 
-string $objects[] ;
-string $tokens[];
-int $char ; 
-tokenize $stuff "#" $tokens; 
-$char = size($stuff) -  (size($tokens[0]) + size($tokens[1])) ; 
-$obj = `ls -sl` ;
-for ($i = 0 ; $i > size($obj) ; $i++)
+string $tokens[] ; // This creates an array for the strings that will be created later by tokenizing $stuff to go. 
+tokenize $stuff "#" $tokens ; // This finds the symbol in the paranthesis, removes it, splits the string where it finds that symbol, and puts them both into the $tokens array as $tokens[0] and $tokens[1]
+string $objs[] ; //This is the array that will hold all of the selected objects. 
+$objs = `ls -sl` ; //This allows us to grab all of the selected objects in order to rename them later on and puts them into the $objs array. 
+if (size($tokens) != 2) //This if statement is important because it prevents the tool from doing anything if the user hasn't formatted their object name correctly and returns an error saying that they need to reformat. This is important because the tokenize command and later for loops are set up for only one set of delimeters. /*
+    error ("Input string must be in the format \"prefix_#####_suffix\"") ; 
+int $digitsDelimiters =  size($stuff)  - size($tokens[0]) - size ($tokens[1]) ; //This calculates the number of delimeters so that we can calculate how much padding is needed later on. 
+for ($i = 0 ; $i  < size($objs) ; $i++ ) // This for loop is to set the iterator for each renamed objects. 
 {
-string $num = $i ; 
-string $pad = "0" ;
-string $padNum = (instance($pad) * size($char)) - size($num) ; 
-string $newStuff = $tokens[0] + $padNum + $num + $tokens[1] ; 
-rename obj[0] $newStuff ; 
-$i = (int)$i ; 
-$obj[size($obj)] =  $objects[0] ;
+int $digitsIter = `size((string)($i + 1))` ; // This is to make sure the iterator starts at 1 rather than at 0. 
+int $numPads = $digitsDelimiters - $digitsIter ;  //This calculates how many zeroes will need to go into the padding. 
+string $pad = "" ; //This sets the string $pad for the padding as an empty string that can be filled in later. 
+for ($f = 0 ; $f < $numPads ; $f++ ) //This is actually the part I had the hardest time with, so I'm really glad we went over it in class. This for loop sets how many "0"s in the string $pad and matches that number to the int that was the result of calculating for $numPads /*
+{
+$pad = $pad + "0" ; 
 }
+string $newStuff =  $tokens[0] + $pad + ($i + 1)  + $tokens[1] ; //This puts all of the name elements together in one string. 
+rename $objs[$i] $newStuff ; //This renames all of the objects selected. 
+ 
 }
-RenameTool ("Leg_######_Aloo") ;
+ 
+}
+
+RenameTool ("Leg_######_Geo") ; // And this allows us to imput whatever we want for $stuff. 
