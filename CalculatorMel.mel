@@ -1,0 +1,81 @@
+proc Calculator (Addition(), Subtraction(), Multiplication(), Division(), MeanIsAlsoAverage(), Median())
+{
+    
+}proc Addition($num[])
+{
+int $num[] ; 
+
+int $sum =  $num[0] ; 
+
+for (i = 1; i < size($num) ; i++)
+{
+$sum = $sum + $num[I] ; 
+}
+return $sum ; 
+}
+
+proc Subtraction($num[])
+{
+int $num[] ; 
+
+int $sum =  $num[0] ; 
+
+for (i = 1; i < size($num) ; i++)
+{
+$sum = $sum - $num[I] ; 
+}
+return $sum ; 
+}
+
+proc Division($num[])
+{
+int $num[] ; 
+
+int $sum =  $num[0] ; 
+
+for (i = 1; i < size($num) ; i++)
+{
+$sum = $sum / $num[I] ; 
+}
+return $sum ; 
+}
+
+proc Multiplication($num[])
+{
+int $num[] ; 
+
+int $sum =  $num[0] ; 
+
+for (i = 1; i < size($num) ; i++)
+{
+$sum = $sum * $num[I] ; 
+}
+return $sum ; 
+}
+
+proc AverageIsAlsoMean($num[])
+{
+int $num[] ; 
+
+int $sum =  $num[0] ; 
+
+for (i = 1; i < size($num) ; i++)
+{
+$sum = $sum + $num[I] ; 
+}
+$sum = $sum / size($num) ; 
+return $sum ; 
+}
+
+proc Median($num[])
+{
+int $num[] ; 
+
+int $sum = (size($num))/2 ; 
+
+int $mode = $num[$sum] ; 
+ 
+}
+}
+
+Calculator() ; 
