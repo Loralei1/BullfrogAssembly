@@ -1,52 +1,86 @@
-proc float Addition(float $num[])
+proc Calculator(int $input)
+{
+
+switch (<$input>)
+{
+case <1> :
+Addition(float $num[]);
+break; 
+case <2> :
+Subtraction(float $num[]);
+break; 
+case <3> :
+Division(float $num[]); 
+break; 
+case <4>:
+Multiplication(float $num[]); 
+break; 
+case <5> :
+Mean(float $num[]) ; 
+break; 
+case <6> :
+Middle (float $num[]) ; 
+break ; 
+case <7> :
+Mode (float $num[]) ; 
+break ; 
+case <8> :
+Power(float $num, float $exponent) ; 
+break ; 
+default: 
+print "You must input a value." ; 
+break; 
+
+return $answer ; 
+}
+
+Calculator(); 
+print $answer ; 
+
+}
+
+global proc float Addition(float $num[])
 {
 float $num[] ; 
 float $sum =  $num[0] ; 
       for ($i = 1; $i < size($num) ; $i++)
 {
-              $sum = $sum + $num[$i] ; 
-
+          $sum = $sum + $num[$i] ; 
 }
 return $sum ; 
 }
-
 int $answer ; 
 $answer = Addition({3, 4, 5}) ; 
 
-
-
-proc float Subtraction(float $num[])
+global proc float Subtraction(float $num[])
 {
 float $num[] ; 
 float $sum =  $num[0] ; 
-       for ($i = 1; $i < size($num) ; $i++)
+     for ($i = 1; $i < size($num) ; $i++)
 {
-             $sum = $sum - $num[$i] ; 
+          $sum = $sum - $num[$i] ; 
 }
 return $sum ; 
 }
-
 int $answer ; 
 $answer = Subtraction({7, 9, 6}) ; 
 
 
-proc float Division(float $num[])
+global proc float Division(float $num[])
 {
 float $num[] ; 
 float $sum =  $num[0] ; 
-      for ($i = 1; $i < size($num) ; $i++)
+     for ($i = 1; $i < size($num) ; $i++)
 {
-          $sum = $sum / $num[$i] ; 
+         $sum = $sum / $num[$i] ; 
 }
 return $sum ; 
 }
-
 int $answer ; 
 $answer = Division({9, 4, 5}) ; 
 
 
-
-proc float Multiplication(float $num[])
+global proc float Multiplication(float $num[])
 {
 float $num[] ; 
 float $sum =  $num[0] ; 
@@ -56,12 +90,11 @@ float $sum =  $num[0] ;
 }
 return $sum ; 
 }
-
 int $answer ; 
 $answer = Multiplication({3, 4, 5, 6, 10, 15}) ; 
 
 
-proc float Mean(float $num[])
+global proc float Mean(float $num[])
 {
 float $num[] ; 
 float $sum =  $num[0] ; 
@@ -72,12 +105,11 @@ float $sum =  $num[0] ;
 $sum = $sum / size($num) ; 
 return $sum ; 
 }
-
 int $answer ; 
 $answer = Mean({17, 4, 6, 10, 7}) ; 
 
 
-proc float Middle(float $num[])
+global proc float Middle(float $num[])
 {
 float $num[] ; 
 float $numGroup[] = `sort $num[]` ; 
@@ -85,14 +117,40 @@ float $sum = (size($num))/2 ;
 int $median = $numGroup[$sum] ; 
 return $median ; 
 }
-}
-
 int $answer ; 
 $answer = Middle({1, 2, 3}) ; 
 
+global proc float Mode(float $num[])
+{
+int $numArray[] = `sort $nums` ; 
+int $num = $nums [0] ; 
+int $mode = $num ; 
+
+int $frequency = 1 ; 
+int $freqMode = 1 ; 
+     for ($i = 1; $i < size($num) ; $i++ )
+     {
+          $frequncy++; 
+     }
+     else
+     {
+     if ($frequncy > $freqMod)
+     {
+          $freqMode = $frequency ; 
+          $mode = $num ; 
+     }
+
+     }
+
+return $mode ; 
+}
+
+int $answer ; 
+$asnwer = Mode({1, 4, 5, 5, 6, 7, 9 })
 
 
-proc float Power(float $num, float $exponent)
+
+global proc float Power(float $num, float $exponent)
 {
 float $total = $num ; 
       for ($i = 1 ; $i < $exponent ; $i++)
@@ -101,6 +159,5 @@ float $total = $num ;
 } 
 return $total ; 
 }
-
 int $answer ; 
 $answer = Power(2, 2) ;
