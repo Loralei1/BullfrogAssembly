@@ -1,0 +1,55 @@
+proc Locater(int $Input) 
+{
+switch ($input) 
+{
+case 1 :
+CenterMany() ; 
+break; 
+case 2 :
+IndiCenter()
+break ; 
+default : 
+print "You must enter a 1 or 2." ' 
+break ;
+}
+
+}
+
+
+
+proc float CenterMany()
+{
+float $transforms[] ; 
+string $sels[] ; 
+$sels = `ls -selection` ;
+
+
+$transforms = `xform -q -bb $sels[x]` ; 
+
+float $X = math thing; 
+float $Y = math things ;   
+float $Z = math thing ; 
+
+spaceLocater -p $X $Y $Z ;  
+}
+
+
+proc float IndiCenter ()
+{
+string $sels[] ; 
+$sels = `ls -selection` ;
+
+     for ($i =  0; $i < size($sels); $i++)
+     {
+         float $transforms[] ; 
+         $transforms = `xform -q -bb $sels[i]` ; 
+         float $X = math thing ; 
+         float $Y =  math thing ; 
+         float $Z = math thing ; 
+
+         spaceLocater -p $X $Y $Z ; 
+
+     }
+
+
+}
