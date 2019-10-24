@@ -1,4 +1,4 @@
-proc Locater(int $Input) 
+proc PlaceL(int $Input) 
 {
 
      switch ($input) 
@@ -18,6 +18,8 @@ proc Locater(int $Input)
 
 }
 
+PlaceL (1) ; 
+
 
 global proc CenterMany()
 {
@@ -36,7 +38,7 @@ global proc CenterMany()
     float $Y = (bb[1] + bb[4])/2 ;   
     float $Z = (bb[2] + bb[5])/2 ; 
 
-    spaceLocater -p $X $Y $Z ; 
+    spaceLocator -p $X $Y $Z ; 
 
 }
 
@@ -55,7 +57,7 @@ global proc IndiCenter ()
                     float $Y = (bb[1] + bb[4])/2 ;   
                     float $Z = (bb[2] + bb[5])/2 ; 
 
-                    spaceLocater -p $X $Y $Z ; 
+                    spaceLocator -p $X $Y $Z ; 
                 }
 
 }
