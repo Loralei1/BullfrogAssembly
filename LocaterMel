@@ -1,63 +1,125 @@
-proc PlaceL(int $Input) 
+proc PlaceL(int $input) 
+
 {
 
+
+
      switch ($input) 
+
      {
 
+
+
           case 1 :
+
                CenterMany() ; 
+
                break; 
+
          case 2 :
-               IndiCenter()
+
+               IndiCenter() ;
+
                break ; 
+
           default : 
-               print "You must enter a 1 or 2." ' 
+
+               print ("You must enter a 1 or 2.") ; 
+
                break ;
+
+
 
      }
 
+
+
 }
+
+
 
 PlaceL (1) ; 
 
 
+
+
+
 global proc CenterMany()
+
 {
+
      string $sels[] = `ls -sl` ; 
-     float $bb[];
+
+     float $spot[];
+
      
+
      string $dups[] = `duplicate $sels` ; 
+
      $dups = `polyUnite $dups` ; 
+
      delete -ch $dups ; 
+
+
 
      $bb = `xform -q -bb $dups[0]` ;
 
+
+
      delete $dups[0] ; 
 
-    float $X = (bb[0] + bb[3])/2 ; 
-    float $Y = (bb[1] + bb[4])/2 ;   
-    float $Z = (bb[2] + bb[5])/2 ; 
+
+
+    float $X = ($spot[0] + $spot[3])/2 ; 
+
+    float $Y = ($spot[1] + $spot[4])/2 ;   
+
+    float $Z = ($spot[2] + $spot[5])/2 ; 
+
+
 
     spaceLocator -p $X $Y $Z ; 
 
+
+
 }
+
+
 
 global proc IndiCenter ()
 
+
+
 {
 
-      string $sels[] ; 
-      $sels = `ls -sl` ;
-           for ($i =  0; $i < size($sels); $i++)
-               {
-                    float $bb[] ; 
-                    $bb = `xform -q -bb $sels[i]` ; 
 
-                    float $X = (bb[0] + bb[3])/2 ; 
-                    float $Y = (bb[1] + bb[4])/2 ;   
-                    float $Z = (bb[2] + bb[5])/2 ; 
+
+      string $sels[] ; 
+
+      $sels = `ls -sl` ;
+
+           for ($i =  0; $i < size($sels); $i++)
+
+               {
+
+                    float $spot[] ; 
+
+                    $spot = `xform -q -bb $sels[$i]` ; 
+
+
+
+                    float $X = ($spot[0] + $spot[3])/2 ; 
+
+                    float $Y = ($spot[1] + $spot[4])/2 ;   
+
+                    float $Z = ($spot[2] + $spot[5])/2 ; 
+
+
 
                     spaceLocator -p $X $Y $Z ; 
+
                 }
+
+
 
 }
