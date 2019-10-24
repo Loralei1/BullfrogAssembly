@@ -1,101 +1,62 @@
 proc Locater(int $Input) 
-
 {
 
-switch ($input) 
+     switch ($input) 
+     {
 
-	{
+          case 1 :
+               CenterMany() ; 
+               break; 
+         case 2 :
+               IndiCenter()
+               break ; 
+          default : 
+               print "You must enter a 1 or 2." ' 
+               break ;
 
-	case 1 :
-	CenterMany() ; 
-	break; 
-	case 2 :
-	IndiCenter()
-	break ; 
-	default : 
-	print "You must enter a 1 or 2." ' 
-	break ;
-
-	}
-
-
+     }
 
 }
-
-
-
-
-
 
 
 proc float CenterMany()
-
 {
+     string $sels[] = `ls -sl` ; 
+     float $bb[];
+     
+     string $dups[] = `duplicate $sels` ; 
+     $dups = `polyUnite $dups` ; 
+     delete -ch $dups ; 
 
-	float $transforms[] ; 
+     $bb = `xform -q -bb $dups[0]` ; 
+     print ($bb) ;
 
-	string $sels[] ; 
+     delete $dups[0] ; 
 
-	$sels = `ls -selection` ;
+    float $X = (bb[0] + bb[3])/2 ; 
+    float $Y = (bb[1] + bb[4])/2 ;   
+    float $Z = (bb[2] + bb[5])/2 ; 
 
-
-
-
-
-	$transforms = `xform -q -bb $sels[x]` ; 
-
-
-
-	float $X = (transforms[0] + transforms[3])/2; 
-
-	float $Y = (transforms[1] + transforms[4])/2;  ;   
-
-	float $Z = (transforms[2] + transforms[5])/2;  ; 
-
-
-
-	spaceLocater -p $X $Y $Z ;  
+    spaceLocater -p $X $Y $Z ; 
 
 }
-
-
-
-
 
 proc float IndiCenter ()
 
 {
 
-	string $sels[] ; 
+      string $sels[] ; 
+      $sels = `ls -selection` ;
+           for ($i =  0; $i < size($sels); $i++)
+               {
+                    float $bb[] ; 
+                    $bb = `xform -q -bb $sels[i]` ; 
 
-	$sels = `ls -selection` ;
+                    float $X = (bb[0] + bb[3])/2 ; 
+                    float $Y = (bb[1] + bb[4])/2 ;   
+                    float $Z = (bb[2] + bb[5])/2 ; 
 
-
-
-		for ($i =  0; $i < size($sels); $i++)
-
-		{
-
-			float $transforms[] ; 
-
-			$transforms = `xform -q -bb $sels[i]` ; 
-
-			float $X = (transforms[0] + transforms[3])/2; 
-
-			float $Y = (transforms[1] + transforms[4])/2;  ;   
-
-			float $Z = (transforms[2] + transforms[5])/2;  ; 
-
-
-
-			spaceLocater -p $X $Y $Z ; 
-
-
-
-     }
-
-
-
-
+                    spaceLocater -p $X $Y $Z ; 
+                }
 
 }
