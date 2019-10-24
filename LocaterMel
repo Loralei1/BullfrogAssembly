@@ -19,7 +19,7 @@ proc Locater(int $Input)
 }
 
 
-proc float CenterMany()
+global proc CenterMany()
 {
      string $sels[] = `ls -sl` ; 
      float $bb[];
@@ -28,8 +28,7 @@ proc float CenterMany()
      $dups = `polyUnite $dups` ; 
      delete -ch $dups ; 
 
-     $bb = `xform -q -bb $dups[0]` ; 
-     print ($bb) ;
+     $bb = `xform -q -bb $dups[0]` ;
 
      delete $dups[0] ; 
 
@@ -41,7 +40,7 @@ proc float CenterMany()
 
 }
 
-proc float IndiCenter ()
+global proc IndiCenter ()
 
 {
 
