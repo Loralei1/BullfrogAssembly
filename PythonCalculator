@@ -22,7 +22,7 @@ def Calculator(input, values):
     else:
         print "You must input at least two values."
 
-global def Add(values):
+def Add(values):
     '''
     Adds two numbers together and returns result
     input: float value1, float value2
@@ -36,7 +36,7 @@ global def Add(values):
         
     return result
 
-global def Subtract(values):
+def Subtract(values):
     '''
     Adds two numbers together and returns result
     input: float value1, float value2
@@ -51,7 +51,7 @@ global def Subtract(values):
     return result
 
 
-global def Divide(values):
+def Divide(values):
 '''
 divides all values in a list
 '''
@@ -64,7 +64,7 @@ divides all values in a list
 
     return float(result)
 
-global def Multiply(values):
+def Multiply(values):
     '''
     multiplies all numbers in a list together
     '''
@@ -77,7 +77,7 @@ global def Multiply(values):
     return result
 
 
-global def Mode(values):
+def Mode(values):
     
     counter = 0 
     modeList = [0]
@@ -101,7 +101,7 @@ global def Mode(values):
     print "The mode is ", mode, "with a frequency of", highFreq
            
 
-global def Mean(values):
+def Mean(values):
     '''
     finds the average of a sequence of numbers
     '''
@@ -116,7 +116,7 @@ global def Mean(values):
         
     return result
 
-global def Median(values):
+def Median(values):
 '''
 Finds the median in a list of numbers
 '''
@@ -129,7 +129,7 @@ Finds the median in a list of numbers
     
     return median
 
-global def Power(values): 
+def Power(values): 
     '''
     a number raises to the power of the second value
     '''
