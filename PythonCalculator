@@ -1,0 +1,138 @@
+def Calculator(input, values):
+    
+    import math
+
+    if input == "Add":
+        Add(values)
+
+    elif input == "Subtract":
+        Subtract(values)
+    elif input == "Divide":
+        Divide(values)
+    elif input == "Multiply":
+        Multiply(values)
+    elif input == "Mode":
+        Mode(values)
+    elif input == "Mean":
+        Mean(values)
+    elif input == "Median":
+        Median(values)
+    elif input == "Power":
+        Power(values)
+    else:
+        print "You must input at least two values."
+
+global def Add(values):
+    '''
+    Adds two numbers together and returns result
+    input: float value1, float value2
+    return: float
+    '''
+    result = 0 
+    for val in values: 
+        if type (val) == 'int' or type (val) == 'float':
+            result += val
+        else: print "No. That is a no. You must input a float or integer value.", val
+        
+    return result
+
+global def Subtract(values):
+    '''
+    Adds two numbers together and returns result
+    input: float value1, float value2
+    return: float
+    '''
+    result = 0 
+    for val in values: 
+        if type (val) == 'int' or type (val) == 'float':
+            result -= val
+        else: print "No. That is a no.", val
+        
+    return result
+
+
+global def Divide(values):
+'''
+divides all values in a list
+'''
+
+    result = values[0]
+    counter =  1
+        while (counter <= len(values) - 1): 
+            results /= values[counter]
+                break
+
+    return float(result)
+
+global def Multiply(values):
+    '''
+    multiplies all numbers in a list together
+    '''
+    result = 1 
+    for val in values: 
+        if type (val) == 'int' or type (val) == 'float':
+            result *= val
+        else: print "No. That is a no.", val
+        
+    return result
+
+
+global def Mode(values):
+    
+    counter = 0 
+    modeList = [0]
+    highFreq = 0
+    modeNumber = 0
+    Mode = 0
+    
+    for val in values:
+           counter = values.count(val)
+           print (counter), val         
+           modeList.append(counter)
+           highFreq = max(modeList)
+           print highFreq
+           modeNumber = modeList.index(highFreq)
+           print modeNumber
+           mode = values[modeNumber]
+           print mode 
+           
+    return mode
+    return highFreq
+    print "The mode is ", mode, "with a frequency of", highFreq
+           
+
+global def Mean(values):
+    '''
+    finds the average of a sequence of numbers
+    '''
+    sum = 0 
+    result = 0
+
+    for val in values: 
+        if type (val) == 'int' or type (val) == 'float':
+            sum += val
+            result = float(sum/len(values))
+        else: print "No. That is a no.", val
+        
+    return result
+
+global def Median(values):
+'''
+Finds the median in a list of numbers
+'''
+    
+
+    median = 0
+    sum = len(values)/2
+    sum = int(math.ceil(sum)) 
+    median = values[sum]
+    
+    return median
+
+global def Power(values): 
+    '''
+    a number raises to the power of the second value
+    '''
+    import math
+    return math.pow(value[0], value[1])
+    return value**exponent
