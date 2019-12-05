@@ -1,0 +1,35 @@
+def colorControl(colorname):
+    
+    stuff = cmds.ls(sl = True)
+    
+    if colorname == 'yellow':
+        color = 17
+    elif colorname == 'red':
+        color = 13
+    elif colorname == 'blue':
+        color = 6
+    elif colorname == 'black':
+        color = 1
+    elif colorname == 'green':
+        color = 7 
+    elif colorname == 'pink':
+        color = 9
+    elif colorname == 'brown':
+        color = 10 
+    elif colorname == 'neon green':
+        color = 14
+    elif colorname == 'purple':
+        color = 30 
+    elif colorname == 'white':
+        color = 16
+    else: 
+        color = 14
+        
+    for things in stuff:
+        shapes = cmds.listRelatives(stuff, children=True, shapes=True)
+        
+        for shape in shapes:
+            cmds.setAttr('%s.overrideEnabled' % shape, True)
+            cmds.setAttr('%s.overrideColor' % shape, color) 
+            
+colorControl('white')
