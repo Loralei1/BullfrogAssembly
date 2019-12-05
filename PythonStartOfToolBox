@@ -1,0 +1,60 @@
+class Toolbox():
+    
+    import maya.cmds as cmds
+    
+    def __init__(self):
+        
+        self.window_name = "mlToolbox"
+    def create(self): 
+        self.delete()
+        self.window_name = cmds.window(self.window_name)
+        self.m_column = cmds.columnLayout(p = self.window_name, adj = True)
+        cmds.button(p=self.m_column,label = 'MyButton', c=lambda *arg: cmds.polySphere(r = 2))
+        
+        cmds.button(p=self.m_column, label = 'Make_Control', command = lambda *args: self.CreateControl())
+        
+        self.color = cmds.textField(placeholderText = 'Enter color name...')
+        cmds.button(p=self.m_column, label = 'ChangeColor', command = lambda *args: self.colorBTN())
+        
+        cmds.showWindow(self.window_name)
+        
+        cmds.button(p=self.m_column, label = 'Select Everything', command = lambda *args: self.selectBTN())
+    
+    def colorBtn(self):
+        
+        value = cmds.textField(self.color, q=True, text = True)
+        self.colorControl(value)
+        cmds.textField(self.color, e=True, text='')
+    
+    def selectBTN(self): 
+        import tools
+        tools.selectAll()
+    
+    def delete(self): 
+        if cmds.window(self.window_name, exists=True):
+            cmds.deleteUI(self.window_name)
+            
+    def CreateControl(self):
+    
+        import maya.cmds as cmds
+    
+        Stuff = cmds.ls(sl=True, objectsOnly=True) 
+
+        i = 0
+    
+        circles = []
+
+        for Thing in Stuff: 
+        
+        
+            circles.append(cmds.circle(r = 2, ch = False))
+       
+            cmds.matchTransform(circles[i], Stuff[i])
+            cmds.parentConstraint(circles[i], Stuff[i])
+       
+      
+            i = i + 1
+         
+myTool = Toolbox()    
+
+myTool.create() 
