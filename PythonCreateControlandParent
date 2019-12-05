@@ -1,0 +1,22 @@
+def CreateControl():
+    
+    import maya.cmds as cmds
+    
+    Stuff = cmds.ls(sl=True, objectsOnly=True) 
+
+    i = 0
+    
+    circles = []
+
+    for Thing in Stuff: 
+        
+        
+        circles.append(cmds.circle(r = 2, ch = False))
+       
+        cmds.matchTransform(circles[i], Stuff[i])
+        cmds.parentConstraint(circles[i], Stuff[i])
+       
+      
+        i = i + 1
+       
+CreateControl()
