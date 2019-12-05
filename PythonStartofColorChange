@@ -1,0 +1,11 @@
+def ColorChange():
+    
+    import maya.cmds as cmds 
+    
+    stuff = cmds.ls(sl = True)
+    
+    i = 0 
+    
+    for things in stuff: 
+        cmds.color(stuff[i], rgb=(1, 0, 0))
+ColorChange()
